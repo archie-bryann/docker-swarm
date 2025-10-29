@@ -55,3 +55,5 @@ docker service update --image nginx:1.29.1 nginx-server-1
 # Rollback a service to the previous image
 docker service rollback nginx-server-1
 ```
+
+https://youtu.be/_YsPt7dIvqU?si=5Gk5G7Ywd31xlOXJ&t=893
