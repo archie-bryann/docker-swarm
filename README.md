@@ -33,3 +33,25 @@ Ensure to allow the following ports on all nodes:
 # Promote the other nodes (so they can be reachable or backup leaders when the leader goes down)
 docker node promote [hostname]
 ```
+
+```bash
+# Create a service (vm-test-1)
+docker service create --name nginx-server-1 --publish 8081:80 --replicas 2 nginx:latest
+
+# To remove the service
+docker service rm nginx-server-1
+
+# To list services
+docker service ls
+
+# To see where the service is running
+docker service ps nginx-server-1
+```
+
+```bash
+# Update a service
+docker service update --image nginx:1.29.1 nginx-server-1
+
+# Rollback a service to the previous image
+docker service rollback nginx-server-1
+```
