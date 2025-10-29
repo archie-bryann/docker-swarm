@@ -21,6 +21,15 @@ docker swarm join --token SWMTKN-1-35ginj4xb66mzm76605lbdvgmtnwcryd0girghhw9qsi3
 ```
 
 ```bash
-# vm-test-1
+# List all nodes (vm-test-1)
 docker node ls
+```
+
+Ensure to allow the following ports on all nodes:
+![Screenshot](image.png)
+![Screenshot](image2.png)
+
+```bash
+# Promote the other nodes (so they can be reachable or backup leaders when the leader goes down)
+docker node promote [hostname]
 ```
