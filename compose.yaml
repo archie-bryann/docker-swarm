@@ -11,6 +11,13 @@ services:
         constraints:
           # - node.role == manager
           - node.hostname != ip-172-31-18-157 # vm-test-1
+    secrets:
+      - secret1
+    configs:
+      - source: nginx_config_file
+        target: /etc/nginx/nginx_example.yaml
+    environment:
+      - API_TOKEN_FILE=/run/secrets/secret1
     ports:
       - 8082:80
       # - 80:80
@@ -26,9 +33,17 @@ services:
     #   - traefik.http.routers.nginx.tls=true
     #   - traefik.http.routers.nginx.tls.certresolver=cloudfare
     #   - traefik.http.routers.nginx.service=nginx
-    # networks:
-    #   - frontend
+    networks:
+      - proxy
     # restart: unless-stopped
-# networks:
-#   frontend:
-#     external: true
+networks:
+  proxy:
+    external: true
+
+secrets:
+  secret1:
+    external: true
+
+configs:
+  nginx_config_file:
+    external: true

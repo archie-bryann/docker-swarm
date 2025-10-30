@@ -77,5 +77,62 @@ docker stack ls
 docker stack ps nginx-server-2
 ```
 
+```bash
+# Create overlay network
+docker network create \
+    --driver overlay \
+    --attachable \
+    # --apt encrypted # performance impact
+    proxy # name of network
+
+docker network create --driver overlay --attachable proxy
+
+# List networks
+docker network ls
+```
+
+```bash
+# Create secrets
+echo "supersafesecret" | docker secret create secret1 -
+
+# List secrets
+docker secret ls
+```
+
+```bash
+# Create config file (config.yaml)
+
+# Create docker config
+docker config create nginx_config_file config.yaml
+# cannot edit the config later, have to recreate
+
+# List configs
+docker config ls
+```
+
+```bash
+# Redeploy stack
+docker stack deploy -c compose.yaml nginx-server-2
+# or
+docker stack deploy --compose-file compose.yaml nginx-server-2
+```
+
+```bash
+# Check running containers on a node
+# where the stack was deployed to (vm-test-3)
+docker ps
+
+# Open a shell in container from stack (vm-test-3)
+docker exec -it [name] sh
+
+# Check for secret
+ls /run/secrets
+cat /run/secrets/secret1
+
+# Check for config
+cd /etc/nginx
+cat nginx_example.yaml
+```
+
 https://chatgpt.com/c/68fa2c06-7784-832b-b2cd-678ae4f8a70a
 https://youtu.be/_YsPt7dIvqU?si=5Gk5G7Ywd31xlOXJ&t=893

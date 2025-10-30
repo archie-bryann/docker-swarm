@@ -1,0 +1,33 @@
+# Application Configuration
+app:
+  name: "my-app"
+  version: "1.0.0"
+  debug: false
+  port: 8080
+
+# Database Configuration
+database:
+  host: "localhost"
+  port: 5432
+  host: "myapp_db"
+  username: "myuser"
+  password: "mypassword"
+
+# Server configuration
+server:
+  host: "0.0.0.0"
+  port: 3000
+  ssl_enabled: false
+  timeout: 30
+
+# Logging Configuration
+logging:
+  level: "info"
+  format: "json"
+  output: "stdout"
+
+# Feature Flags
+features:
+  enable_auth: true
+  enable_cache: false
+  enable_metrics: true
