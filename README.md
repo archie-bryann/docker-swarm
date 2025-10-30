@@ -136,3 +136,5 @@ cat nginx_example.yaml
 
 https://chatgpt.com/c/68fa2c06-7784-832b-b2cd-678ae4f8a70a
 https://youtu.be/_YsPt7dIvqU?si=5Gk5G7Ywd31xlOXJ
+
+Updated Mental Model: https://claude.ai/chat/64f1d877-9ec5-46f2-908b-4467ac825b31
